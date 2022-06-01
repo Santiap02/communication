@@ -1,0 +1,29 @@
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+	implementation project( ':feign-consumer')
+	implementation project( ':feign-helper')
+	implementation project( ':rest-consumer')
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
+	implementation project( ':api-rest')
+    implementation project(':model')
+    implementation project(':usecase')
+    implementation 'org.springframework.boot:spring-boot-starter'
+    runtimeOnly('org.springframework.boot:spring-boot-devtools')
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.1.3'
+}
+
+task explodedJar(type: Copy) {
+    with jar
+    into "${buildDir}/exploded"
+}
+
+jar {
+    // To disable the *-plain.jar
+    enabled = false
+}
+
+bootJar {
+    // Sets output jar name
+    archiveFileName = "${project.getParent().getName()}.${archiveExtension.get()}"
+}
