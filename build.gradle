@@ -9,10 +9,14 @@ buildscript {
 }
 
 plugins {
+
 	id 'co.com.bancolombia.cleanArchitecture' version "${cleanArchitectureVersion}"
 	id 'org.springframework.boot' version "${springBootVersion}"
 	id 'org.sonarqube' version "${sonarVersion}"
 	id 'jacoco'
+    id "com.google.protobuf" version "0.8.18"
+    id "java"
+
 }
 
 sonarqube {

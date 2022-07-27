@@ -1,0 +1,50 @@
+dependencies {
+    implementation project(':model')
+    implementation 'org.springframework:spring-context'
+    implementation 'org.xolstice.maven.plugins:protobuf-maven-plugin:0.6.1'
+    implementation 'io.grpc:protoc-gen-grpc-java:1.47.0'
+    implementation 'com.google.protobuf:protobuf-java:3.21.1'
+
+}
+repositories {
+    maven { url "https://plugins.gradle.org/m2/" }
+}
+buildscript {
+    repositories {
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.8'
+    }
+}
+dependencies{
+    implementation 'com.google.protobuf:protobuf-java:3.0.0'
+    implementation 'io.grpc:grpc-stub:1.0.0-pre2'
+    implementation 'io.grpc:grpc-protobuf:1.0.0-pre2'
+    // https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java
+    implementation group: 'com.google.protobuf', name: 'protobuf-java', version: '3.11.1'
+    implementation group: 'com.google.protobuf', name: 'protobuf-java-util', version: '3.11.1'
+
+    // https://mvnrepository.com/artifact/io.grpc/grpc-all
+    implementation group: 'io.grpc', name: 'grpc-all', version: '1.26.0'
+
+    // https://mvnrepository.com/artifact/io.grpc/grpc-services
+    implementation group: 'io.grpc', name: 'grpc-services', version: '1.28.0'
+}
+
+protobuf {
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.0.0'
+    }
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.0.0-pre2'
+        }
+    }
+    generateProtoTasks {
+        all()*.plugins{
+            grpc{}
+        }
+    }
+}
+
