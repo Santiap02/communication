@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public interface FeignClientInversionista {
 
 
-    @GetMapping(value = "inversionistas/")
+    @GetMapping(value = "inversionista")
     ResponseData findAll();
+
+
 
 }

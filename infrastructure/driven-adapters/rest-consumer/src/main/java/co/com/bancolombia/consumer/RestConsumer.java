@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Order(2)
 @Service
@@ -39,8 +38,7 @@ public class RestConsumer implements InversionistaRepository
             .addHeader("Content-Type","application/json")
             .build();
         var a =  mapper.readValue(client.newCall(request).execute().body().string(), ResponseData.class).getData();
-        List<Inversionista> b =  a.stream().map(o -> mapper.convertValue(o, Inversionista.class)).collect(Collectors.toList());
-        return b;
+        return a.stream().map(o -> mapper.convertValue(o, Inversionista.class)).toList();
     }
 
     public ObjectResponse testPost() throws IOException {
@@ -49,10 +47,8 @@ public class RestConsumer implements InversionistaRepository
             .val2("exampleval1")
             .build()
         );
-
         RequestBody requestBody = RequestBody
             .create(MediaType.parse("application/json; charset=utf-8"), json);
-
         Request request = new Request.Builder()
             .url(url2)
             .post(requestBody)

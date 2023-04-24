@@ -1,13 +1,14 @@
 package co.com.bancolombia.consumer;
 
-    import lombok.AllArgsConstructor;
-    import lombok.Builder;
-    import lombok.Data;
-    import lombok.NoArgsConstructor;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-    import javax.validation.Valid;
-    import javax.validation.constraints.NotBlank;
-    import javax.validation.constraints.Size;
+
 
 @Data
 @Builder(toBuilder = true)

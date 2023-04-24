@@ -1,7 +1,7 @@
 buildscript {
 	ext {
-		cleanArchitectureVersion = '2.4.0'
-		springBootVersion = '2.6.7'
+		cleanArchitectureVersion = '3.0.2'
+        springBootVersion = '3.0.5'
 		sonarVersion = '3.0'
 		jacocoVersion = '0.8.5'
         lombokVersion = '1.18.22'
@@ -14,7 +14,6 @@ plugins {
 	id 'org.springframework.boot' version "${springBootVersion}"
 	id 'org.sonarqube' version "${sonarVersion}"
 	id 'jacoco'
-    id "com.google.protobuf" version "0.8.18"
     id "java"
 
 }

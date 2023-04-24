@@ -13,7 +13,7 @@ subprojects {
     apply plugin: 'io.spring.dependency-management'
 
     compileJava.dependsOn validateStructure
-    sourceCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
 
     dependencies {
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -30,9 +30,9 @@ subprojects {
     jacocoTestReport {
         dependsOn test
         reports {
-            xml.enabled true
+            xml.required = true
             xml.destination file("${buildDir}/reports/jacoco.xml")
-            csv.enabled false
+            csv.required = true
             html.destination file("${buildDir}/reports/jacocoHtml")
         }
     }
@@ -41,7 +41,7 @@ subprojects {
 
 jacoco {
     toolVersion = "${jacocoVersion}"
-    reportsDir = file("$buildDir/reports")
+    reportsDirectory = layout.buildDirectory.dir('reports')
 }
 
 task jacocoMergedReport(type: JacocoReport) {
@@ -51,9 +51,9 @@ task jacocoMergedReport(type: JacocoReport) {
     classDirectories.setFrom files(subprojects.sourceSets.main.output)
     executionData.setFrom project.fileTree(dir: '.', include: '**/build/jacoco/test.exec')
     reports {
-        xml.enabled true
-        csv.enabled false
-        html.enabled true
+        xml.required = true
+        csv.required = true
+        html.required = true
     }
 }
 
@@ -63,5 +63,5 @@ tasks.withType(JavaCompile) {
     ]
 }
 tasks.named('wrapper') {
-    gradleVersion = '7.4.2'
+    gradleVersion = '8.0.1'
 }
