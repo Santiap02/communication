@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.util.HtmlUtils;
 
 @Controller
-public class ApiRest2 {
+public class StompController {
 
     @MessageMapping("/hello")
     @SendTo("/topic/greetings")

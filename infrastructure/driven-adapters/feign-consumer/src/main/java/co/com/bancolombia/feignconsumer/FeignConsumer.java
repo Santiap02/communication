@@ -13,9 +13,8 @@ import java.util.List;
 @Order(1)
 @Service
 @RequiredArgsConstructor
-public class StompConsumer implements InversionistaRepository {
+public class FeignConsumer implements InversionistaRepository {
     private final FeignClientInversionista client;
-
 
     @Override
     public List<Inversionista> getAllInversionistas(){
