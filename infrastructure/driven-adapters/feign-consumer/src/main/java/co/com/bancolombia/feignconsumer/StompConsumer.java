@@ -13,7 +13,7 @@ import java.util.List;
 @Order(1)
 @Service
 @RequiredArgsConstructor
-public class FeignConsumer implements InversionistaRepository {
+public class StompConsumer implements InversionistaRepository {
     private final FeignClientInversionista client;
 
 

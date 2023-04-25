@@ -14,7 +14,5 @@ include ':feign-helper'
 project(':feign-helper').projectDir = file('./infrastructure/helpers/feign-helper')
 include ':feign-consumer'
 project(':feign-consumer').projectDir = file('./infrastructure/driven-adapters/feign-consumer')
-include ':grpc-consumer'
-project(':grpc-consumer').projectDir = file('./infrastructure/driven-adapters/grpc-consumer')
-include ':grpc-helper'
-project(':grpc-helper').projectDir = file('./infrastructure/helpers/grpc-helper')
+include ':stomp-consumer'
+project(':stomp-consumer').projectDir = file('./infrastructure/driven-adapters/stomp-consumer')

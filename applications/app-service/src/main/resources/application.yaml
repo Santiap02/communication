@@ -5,6 +5,8 @@ spring:
     name: "consumo_microservicios"
   devtools:
     add-properties: false
+    restart:
+      log-condition-evaluation-delta: false
   h2:
     console:
       enabled: true
@@ -24,3 +26,8 @@ adapter:
   restconsumer:
     url1: "http://localhost:8080/api/v1/inversionistas/"
     url2: "http://localhost:8080/entidad-inversiones/ei/transaccion/"
+
+logging:
+  level:
+    root: debug
+

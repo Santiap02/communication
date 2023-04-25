@@ -1,6 +1,5 @@
 dependencies {
     implementation project(':model')
     implementation project(':feign-helper')
-    implementation project(':usecase')
     implementation 'org.springframework:spring-context'
 }

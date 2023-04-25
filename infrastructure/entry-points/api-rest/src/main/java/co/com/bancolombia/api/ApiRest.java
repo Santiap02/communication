@@ -1,4 +1,5 @@
 package co.com.bancolombia.api;
+
 import co.com.bancolombia.model.inversionista.Inversionista;
 import co.com.bancolombia.usecase.inversionista.InversionistaUseCase;
 import lombok.AllArgsConstructor;
@@ -22,4 +23,6 @@ public class ApiRest {
     public List<Inversionista> commandName() throws IOException {
          return inversionistaUseCase.getAllInversionistas();
     }
+
+
 }

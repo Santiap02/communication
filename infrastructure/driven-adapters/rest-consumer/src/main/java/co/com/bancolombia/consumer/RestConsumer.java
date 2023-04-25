@@ -29,7 +29,6 @@ public class RestConsumer implements InversionistaRepository
     private final OkHttpClient client;
     private final ObjectMapper mapper;
 
-
     public List<Inversionista> getAllInversionistas() throws IOException {
 
         Request request = new Request.Builder()
@@ -54,9 +53,8 @@ public class RestConsumer implements InversionistaRepository
             .post(requestBody)
             .addHeader("Content-Type","application/json")
             .build();
-
-        return mapper.readValue(client.newCall(request).execute().body().string(), ObjectResponse.class);
-
+        var response = client.newCall(request).execute().body().string();
+        return mapper.readValue(response, ObjectResponse.class);
     }
 
 }
