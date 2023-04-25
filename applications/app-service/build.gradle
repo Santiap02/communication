@@ -2,7 +2,6 @@ apply plugin: 'org.springframework.boot'
 
 dependencies {
 	implementation project( ':feign-consumer')
-    implementation project( ':stomp-consumer')
 	implementation project( ':feign-helper')
 	implementation project( ':rest-consumer')
 	implementation 'com.fasterxml.jackson.core:jackson-databind'
