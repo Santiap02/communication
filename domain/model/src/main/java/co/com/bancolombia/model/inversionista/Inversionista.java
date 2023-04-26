@@ -12,6 +12,8 @@ public class Inversionista {
 
     private Long id;
 
-
     private String nombre;
+
+    private String codigo;
+
 }

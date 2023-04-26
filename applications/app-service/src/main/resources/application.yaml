@@ -13,6 +13,11 @@ spring:
       path: "/h2"
   profiles:
     include: null
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://cognito-idp.us-east-2.amazonaws.com/us-east-2_00tOXrap1
 management:
   endpoints:
     web:
@@ -26,6 +31,7 @@ adapter:
   restconsumer:
     url1: "http://localhost:8080/api/v1/inversionistas/"
     url2: "http://localhost:8080/entidad-inversiones/ei/transaccion/"
+
 
 
 

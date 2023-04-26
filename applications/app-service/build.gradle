@@ -16,6 +16,8 @@ dependencies {
     implementation 'org.webjars:stomp-websocket:2.3.4'
     implementation 'org.webjars:bootstrap:5.2.3'
     implementation 'org.webjars:jquery:3.6.4'
+    implementation "org.springframework.security:spring-security-oauth2-jose:6.0.2"
+    implementation 'org.springframework.security:spring-security-oauth2-resource-server:6.0.3'
 }
 
 task explodedJar(type: Copy) {
@@ -25,8 +27,7 @@ task explodedJar(type: Copy) {
 
 jar {
     // To disable the *-plain.jar
-    enabled = false
-}
+    enabled = false}
 
 bootJar {
     // Sets output jar name
