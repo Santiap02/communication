@@ -16,8 +16,13 @@ dependencies {
     implementation 'org.webjars:stomp-websocket:2.3.4'
     implementation 'org.webjars:bootstrap:5.2.3'
     implementation 'org.webjars:jquery:3.6.4'
-    implementation "org.springframework.security:spring-security-oauth2-jose:6.0.2"
+    implementation "org.springframework.security:spring-security-oauth2-jose:6.0.3"
     implementation 'org.springframework.security:spring-security-oauth2-resource-server:6.0.3'
+    implementation 'org.springframework.boot:spring-boot-starter-security:3.0.6'
+    implementation 'org.springframework.security:spring-security-messaging:6.0.3'
+    implementation 'jakarta.websocket:jakarta.websocket-api:2.1.0'
+
+
 }
 
 task explodedJar(type: Copy) {
