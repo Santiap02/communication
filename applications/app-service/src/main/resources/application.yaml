@@ -22,6 +22,9 @@ spring:
     integration:
       websockets:
         enabled=false:
+  cloud:
+    openfeign:
+      okhttp: enabled
 management:
   endpoints:
     web:
