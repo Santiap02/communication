@@ -1,7 +1,7 @@
-# Proyecto Base Implementando Clean Architecture
+# Comunicacion en microservicios segurizados
 
 ## Antes de Iniciar
-
+El proposito del proyecto es implementar la comunicacion en microservicos a traves de un cliente http, un cliente feign y el protocolo STOMP. 
 Empezaremos por explicar los diferentes componentes del proyectos y partiremos de los componentes externos, continuando con los componentes core de negocio (dominio) y por último el inicio y configuración de la aplicación.
 
 Lee el artículo [Clean Architecture — Aislando los detalles](https://medium.com/bancolombia-tech/clean-architecture-aislando-los-detalles-4f9530f35d7a)
