@@ -9,4 +9,6 @@ public interface InversionistaRepository {
 
     List<Inversionista> getAllInversionistas() throws IOException;
 
+    Inversionista findById(Long id) throws IOException;
+
 }

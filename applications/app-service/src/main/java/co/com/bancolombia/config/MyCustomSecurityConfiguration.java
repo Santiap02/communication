@@ -15,7 +15,7 @@ public class MyCustomSecurityConfiguration {
         http.csrf().disable().cors().disable()
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/consumo/**")
-                        .permitAll()
+                        .authenticated()
                 )
                 .authorizeHttpRequests(authorize -> authorize.anyRequest().permitAll())
                 .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);

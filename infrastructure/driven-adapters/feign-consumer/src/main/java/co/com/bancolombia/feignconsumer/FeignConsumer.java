@@ -5,12 +5,12 @@ import co.com.bancolombia.model.inversionista.Inversionista;
 import co.com.bancolombia.model.inversionista.gateways.InversionistaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
+
 @Primary
-@Order(1)
 @Service
 @RequiredArgsConstructor
 public class FeignConsumer implements InversionistaRepository {
@@ -19,6 +19,11 @@ public class FeignConsumer implements InversionistaRepository {
     @Override
     public List<Inversionista> getAllInversionistas(){
         return client.findAll().getData();
+    }
+
+    @Override
+    public Inversionista findById(Long id) throws IOException {
+        return client.findById(id).getData();
     }
 
 }

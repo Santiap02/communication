@@ -16,5 +16,9 @@ public class InversionistaUseCase {
     public List<Inversionista> getAllInversionistas() throws IOException {
         return inversionistaRepository.getAllInversionistas();
     }
+
+    public Inversionista findById( Long id) throws IOException {
+        return inversionistaRepository.findById(id);
+    }
     
 }

@@ -33,11 +33,11 @@ management:
         enabled: true
 adapter:
   restconsumer:
-    url1: "http://localhost:8080/api/v1/inversionistas/"
+    url1: "http://localhost:8080/api/v1/inversionista"
     url2: "http://localhost:8080/entidad-inversiones/ei/transaccion/"
 logging:
   level:
-    root: debug
+    root: info
 
 
 

@@ -5,6 +5,7 @@ import co.com.bancolombia.usecase.inversionista.InversionistaUseCase;
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,6 +23,11 @@ public class ApiRest {
     @GetMapping(path = "/test")
     public List<Inversionista> commandName() throws IOException {
          return inversionistaUseCase.getAllInversionistas();
+    }
+
+    @GetMapping(path = "/test/{id}")
+    public Inversionista findById(@PathVariable Long id) throws IOException {
+        return inversionistaUseCase.findById(id);
     }
 
 

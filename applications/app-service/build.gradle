@@ -20,8 +20,9 @@ dependencies {
     implementation 'org.springframework.security:spring-security-oauth2-resource-server:6.0.3'
     implementation 'org.springframework.boot:spring-boot-starter-security:3.0.6'
     implementation 'org.springframework.security:spring-security-messaging:6.0.3'
-    implementation 'jakarta.websocket:jakarta.websocket-api:2.1.0'
-
+    implementation "org.springframework.boot:spring-boot-starter-tomcat"
+    implementation 'org.springframework.security:spring-security-web:6.0.3'
+    implementation 'org.springframework:spring-websocket:6.0.8'
 
 }
 

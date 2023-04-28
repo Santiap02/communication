@@ -11,5 +11,5 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Hello {
 
-    private String name;
+    private String id;
 }
