@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface InversionistaRepository {
 
-    List<Inversionista> getAllInversionistas() throws IOException;
+    List<Inversionista> findAll() throws IOException;
 
     Inversionista findById(Long id) throws IOException;
 

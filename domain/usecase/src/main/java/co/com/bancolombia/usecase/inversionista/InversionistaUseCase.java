@@ -13,8 +13,8 @@ public class InversionistaUseCase {
 
     private final InversionistaRepository inversionistaRepository;
 
-    public List<Inversionista> getAllInversionistas() throws IOException {
-        return inversionistaRepository.getAllInversionistas();
+    public List<Inversionista> findAll() throws IOException {
+        return inversionistaRepository.findAll();
     }
 
     public Inversionista findById( Long id) throws IOException {

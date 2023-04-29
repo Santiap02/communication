@@ -1,8 +1,8 @@
 package co.com.bancolombia.api;
 
-import co.com.bancolombia.model.inversionista.gateways.InversionistaRepository;
 import co.com.bancolombia.model.messages.Hello;
 import co.com.bancolombia.model.messages.Response;
+import co.com.bancolombia.usecase.inversionista.InversionistaUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -14,18 +14,18 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class StompController {
 
-    private final InversionistaRepository repository;
+    private final InversionistaUseCase repository;
 
     @MessageMapping("/hello")
     @SendTo("/topic/greetings")
-    public Response greeting(Hello message) throws IOException {
-        String rMessage;
+    public Response findById(Hello message) throws IOException {
+        String responseMessage;
         try {
-            rMessage=  repository.findById(Long.parseLong(message.getId())).toString();
+            responseMessage=  repository.findById(Long.parseLong(message.getId())).toString();
         } catch (NumberFormatException e) {
-            rMessage= "Ese no es un numero";
+            responseMessage= "Ese no es un numero";
         }
-        return new Response(rMessage);
+        return new Response(responseMessage);
     }
 
 }

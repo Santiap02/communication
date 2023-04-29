@@ -25,14 +25,15 @@ public class RestConsumer implements InversionistaRepository
     private final OkHttpClient client;
     private final ObjectMapper mapper;
 
-    public List<Inversionista> getAllInversionistas() throws IOException {
+    public List<Inversionista> findAll() throws IOException {
         Request request = new Request.Builder()
             .url(url1)
             .get()
             .addHeader("Content-Type","application/json")
             .build();
-        var a = (List<Object>) mapper.readValue(client.newCall(request).execute().body().string(), ResponseData.class).getData();
-        return a.stream()
+        var response = (List<Object>) mapper
+                .readValue(client.newCall(request).execute().body().string(), ResponseData.class).getData();
+        return response.stream()
                 .map(o -> mapper.convertValue(o, Inversionista.class))
                 .toList();
     }
@@ -44,7 +45,8 @@ public class RestConsumer implements InversionistaRepository
                 .get()
                 .addHeader("Content-Type","application/json")
                 .build();
-        var response = mapper.readValue(client.newCall(request).execute().body().string(), ResponseData.class);
+        var response = mapper
+                .readValue(client.newCall(request).execute().body().string(), ResponseData.class);
         return mapper.convertValue(response.getData(), Inversionista.class);
     }
 

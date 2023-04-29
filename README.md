@@ -2,6 +2,7 @@
 
 ## Antes de Iniciar
 El proposito del proyecto es implementar la comunicacion en microservicos a traves de un cliente http, un cliente feign y el protocolo STOMP. 
+
 Empezaremos por explicar los diferentes componentes del proyectos y partiremos de los componentes externos, continuando con los componentes core de negocio (dominio) y por último el inicio y configuración de la aplicación.
 
 Lee el artículo [Clean Architecture — Aislando los detalles](https://medium.com/bancolombia-tech/clean-architecture-aislando-los-detalles-4f9530f35d7a)
@@ -45,3 +46,15 @@ Los entry points representan los puntos de entrada de la aplicación o el inicio 
 Este módulo es el más externo de la arquitectura, es el encargado de ensamblar los distintos módulos, resolver las dependencias y crear los beans de los casos de use (UseCases) de forma automática, inyectando en éstos instancias concretas de las dependencias declaradas. Además inicia la aplicación (es el único módulo del proyecto donde encontraremos la función “public static void main(String[] args)”.
 
 **Los beans de los casos de uso se disponibilizan automaticamente gracias a un '@ComponentScan' ubicado en esta capa.**
+
+### Fuentes
+
+Para la realizacion de este proyecto se incluyo codigo libre o versiones modificadas de este disponible en los siguientes enlaces:
+
+[Spring Security](https://docs.spring.io/spring-security/reference/index.html)
+
+[Using WebSocket to build an interactive web application](https://spring.io/guides/gs/messaging-stomp-websocket/)
+
+[Declarative REST Client: Feign](https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-feign.html)
+
+[Scaffolding of Clean Architecture](https://github.com/bancolombia/scaffold-clean-architecture)
