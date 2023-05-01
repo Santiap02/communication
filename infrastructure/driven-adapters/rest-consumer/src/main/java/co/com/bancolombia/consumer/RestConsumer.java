@@ -8,12 +8,12 @@ import lombok.RequiredArgsConstructor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.List;
 
-@Service
+@Component
 @RequiredArgsConstructor
 public class RestConsumer implements InversionistaRepository
 {
@@ -50,7 +50,7 @@ public class RestConsumer implements InversionistaRepository
         return mapper.convertValue(response.getData(), Inversionista.class);
     }
 
-//    public ObjectResponse testPost() throws IOException {
+    //    public ObjectResponse testPost() throws IOException {
 //        String json = mapper.writeValueAsString(ObjectRequest.builder()
 //            .val1("exampleval1")
 //            .val2("exampleval1")
