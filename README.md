@@ -47,9 +47,9 @@ Este módulo es el más externo de la arquitectura, es el encargado de ensamblar l
 
 **Los beans de los casos de uso se disponibilizan automaticamente gracias a un '@ComponentScan' ubicado en esta capa.**
 
-### Fuentes
+## Fuentes
 
-Para la realizacion de este proyecto se incluyo codigo libre o versiones modificadas de este disponible en los siguientes enlaces:
+Para la realizacion de este proyecto se incluyo codigo libre o versiones modificadas de este, disponible en los siguientes enlaces:
 
 [Spring Security](https://docs.spring.io/spring-security/reference/index.html)
 

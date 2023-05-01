@@ -5,12 +5,10 @@ import co.com.bancolombia.model.inversionista.Inversionista;
 import co.com.bancolombia.model.inversionista.gateways.InversionistaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Primary
-@Service
 @RequiredArgsConstructor
 public class FeignConsumer implements InversionistaRepository {
     private final FeignClientInversionista client;
