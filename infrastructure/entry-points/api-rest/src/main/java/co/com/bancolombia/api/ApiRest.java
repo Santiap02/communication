@@ -1,11 +1,13 @@
 package co.com.bancolombia.api;
 
 import co.com.bancolombia.model.inversionista.Inversionista;
+import co.com.bancolombia.usecase.authorization.AuthorizationUseCase;
 import co.com.bancolombia.usecase.inversionista.InversionistaUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,9 +21,12 @@ public class ApiRest {
 
     private final InversionistaUseCase inversionistaUseCase;
 
+    private final AuthorizationUseCase useCase;
+
     @GetMapping(path = "/test")
-    public List<Inversionista> findAll() throws IOException {
-         return inversionistaUseCase.findAll();
+    public List<Inversionista> findAll(@RequestHeader("Authorization") String auth) throws Exception {
+        useCase.validateRole(auth, "ROLE_ADMIN");
+        return inversionistaUseCase.findAll();
     }
 
     @GetMapping(path = "/test/{id}")
