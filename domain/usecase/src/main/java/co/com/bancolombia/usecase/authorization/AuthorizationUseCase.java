@@ -1,13 +1,20 @@
 package co.com.bancolombia.usecase.authorization;
 
+import co.com.bancolombia.usecase.authorization.annotations.SecuredTest;
 import co.com.bancolombia.usecase.helper.TokenData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nimbusds.jwt.SignedJWT;
 import lombok.RequiredArgsConstructor;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
 
-
+@Aspect
+@Component
 @RequiredArgsConstructor
 public class AuthorizationUseCase {
 
@@ -21,8 +28,10 @@ public class AuthorizationUseCase {
             throw new Exception("Invalid token!");
         }
     }
-
-    public void validateRole(String token, String role) throws Exception {
+    @Before(value = "@annotation(co.com.bancolombia.usecase.authorization.annotations.SecuredTest) && args(token)")
+    public void validateRole(JoinPoint joinPoint, String token) throws Exception {
+        var signature = (MethodSignature) joinPoint.getSignature();
+        var role = signature.getMethod().getAnnotation(SecuredTest.class).role();
         if (!this.parseJWT(token).equals(role)){
             throw new Exception("El usuario no tiene las credenciales correctas");
         }
