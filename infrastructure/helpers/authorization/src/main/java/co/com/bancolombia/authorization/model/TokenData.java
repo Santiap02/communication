@@ -1,4 +1,4 @@
-package co.com.bancolombia.usecase.helper;
+package co.com.bancolombia.authorization.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

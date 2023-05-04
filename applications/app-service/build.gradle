@@ -1,6 +1,7 @@
 apply plugin: 'org.springframework.boot'
 
 dependencies {
+	implementation project( ':authorization')
 	implementation project( ':feign-consumer')
 	implementation project( ':feign-helper')
 	implementation project( ':rest-consumer')

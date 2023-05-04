@@ -1,7 +1,7 @@
-package co.com.bancolombia.usecase.authorization;
+package co.com.bancolombia.authorization;
 
-import co.com.bancolombia.usecase.authorization.annotations.SecuredTest;
-import co.com.bancolombia.usecase.helper.TokenData;
+import co.com.bancolombia.authorization.annotations.SecuredTest;
+import co.com.bancolombia.authorization.model.TokenData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nimbusds.jwt.SignedJWT;
 import lombok.RequiredArgsConstructor;
@@ -16,8 +16,7 @@ import java.text.ParseException;
 @Aspect
 @Component
 @RequiredArgsConstructor
-public class AuthorizationUseCase {
-
+public class AuthorizationHelper {
     final ObjectMapper mapper = new ObjectMapper();
 
     private String parseJWT(String accessToken) throws Exception {
@@ -28,7 +27,7 @@ public class AuthorizationUseCase {
             throw new Exception("Invalid token!");
         }
     }
-    @Before(value = "@annotation(co.com.bancolombia.usecase.authorization.annotations.SecuredTest) && args(token,..)")
+    @Before(value = "@annotation(co.com.bancolombia.authorization.annotations.SecuredTest) && args(token,..)")
     public void validateRole(JoinPoint joinPoint, String token) throws Exception {
         var signature = (MethodSignature) joinPoint.getSignature();
         var role = signature.getMethod().getAnnotation(SecuredTest.class).role();

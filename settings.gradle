@@ -14,3 +14,5 @@ include ':feign-helper'
 project(':feign-helper').projectDir = file('./infrastructure/helpers/feign-helper')
 include ':feign-consumer'
 project(':feign-consumer').projectDir = file('./infrastructure/driven-adapters/feign-consumer')
+include ':authorization'
+project(':authorization').projectDir = file('./infrastructure/helpers/authorization')

@@ -1,4 +1,4 @@
-package co.com.bancolombia.usecase.authorization.annotations;
+package co.com.bancolombia.authorization.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

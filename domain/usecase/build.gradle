@@ -1,6 +1,4 @@
 dependencies {
     implementation project(':model')
-    implementation 'com.nimbusds:nimbus-jose-jwt:9.31'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.2'
-    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.0'
+
 }

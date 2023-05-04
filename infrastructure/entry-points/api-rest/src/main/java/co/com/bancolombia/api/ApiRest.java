@@ -1,8 +1,7 @@
 package co.com.bancolombia.api;
 
+import co.com.bancolombia.authorization.annotations.SecuredTest;
 import co.com.bancolombia.model.inversionista.Inversionista;
-import co.com.bancolombia.usecase.authorization.AuthorizationUseCase;
-import co.com.bancolombia.usecase.authorization.annotations.SecuredTest;
 import co.com.bancolombia.usecase.inversionista.InversionistaUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -21,8 +20,6 @@ import java.util.List;
 public class ApiRest {
 
     private final InversionistaUseCase inversionistaUseCase;
-
-    private final AuthorizationUseCase useCase;
 
     @SecuredTest(role = "ROLE_ADMIN")
     @GetMapping(path = "/test")
