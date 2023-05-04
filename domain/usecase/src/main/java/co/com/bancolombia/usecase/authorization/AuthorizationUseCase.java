@@ -28,7 +28,7 @@ public class AuthorizationUseCase {
             throw new Exception("Invalid token!");
         }
     }
-    @Before(value = "@annotation(co.com.bancolombia.usecase.authorization.annotations.SecuredTest) && args(token)")
+    @Before(value = "@annotation(co.com.bancolombia.usecase.authorization.annotations.SecuredTest) && args(token,..)")
     public void validateRole(JoinPoint joinPoint, String token) throws Exception {
         var signature = (MethodSignature) joinPoint.getSignature();
         var role = signature.getMethod().getAnnotation(SecuredTest.class).role();

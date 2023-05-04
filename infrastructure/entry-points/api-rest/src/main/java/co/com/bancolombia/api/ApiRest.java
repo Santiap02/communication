@@ -30,6 +30,7 @@ public class ApiRest {
         return inversionistaUseCase.findAll();
     }
 
+    @SecuredTest(role = "ROLE_INVITED")
     @GetMapping(path = "/test/{id}")
     public Inversionista findById(@PathVariable Long id) throws IOException {
         return inversionistaUseCase.findById(id);
