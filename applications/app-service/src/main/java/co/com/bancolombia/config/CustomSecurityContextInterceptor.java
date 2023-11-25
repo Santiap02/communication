@@ -26,6 +26,9 @@ public class CustomSecurityContextInterceptor implements HandlerInterceptor {
         String accessToken = servletRequest.getHeader(AUTHORIZATION);
         TokenData data;
         try {
+            if (accessToken == null){
+                return true;
+            }
             var decodedJWT = SignedJWT.parse(accessToken.split(" ")[1]);
             data =  mapper.readValue(decodedJWT.getPayload().toString(), TokenData.class);
         } catch (ParseException e) {
