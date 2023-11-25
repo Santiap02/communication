@@ -14,14 +14,14 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class StompController {
 
-    private final InversionistaUseCase repository;
+    private final InversionistaUseCase useCase;
 
     @MessageMapping("/hello")
     @SendTo("/topic/greetings")
     public Response findById(Hello message) throws IOException {
         String responseMessage;
         try {
-            responseMessage=  repository.findById(Long.parseLong(message.getId())).toString();
+            responseMessage=  useCase.findById(Long.parseLong(message.getId())).toString();
         } catch (NumberFormatException e) {
             responseMessage= "Ese no es un numero";
         }

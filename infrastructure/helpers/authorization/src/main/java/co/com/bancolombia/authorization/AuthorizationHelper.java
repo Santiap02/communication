@@ -12,12 +12,13 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
+import java.util.Arrays;
 
 @Aspect
 @Component
 @RequiredArgsConstructor
 public class AuthorizationHelper {
-    final ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper = new ObjectMapper();
 
     private String parseJWT(String accessToken) throws Exception {
         try {
@@ -30,8 +31,8 @@ public class AuthorizationHelper {
     @Before(value = "@annotation(co.com.bancolombia.authorization.annotations.SecuredTest) && args(token,..)")
     public void validateRole(JoinPoint joinPoint, String token) throws Exception {
         var signature = (MethodSignature) joinPoint.getSignature();
-        var role = signature.getMethod().getAnnotation(SecuredTest.class).role();
-        if (!this.parseJWT(token).equals(role)){
+        var roles = Arrays.asList(signature.getMethod().getAnnotation(SecuredTest.class).role());
+        if (!roles.contains(this.parseJWT(token))){
             throw new Exception("El usuario no tiene las credenciales correctas");
         }
     }

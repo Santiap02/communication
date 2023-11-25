@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.util.List;
 
+//@Primary
 @Component
 @RequiredArgsConstructor
 public class RestConsumer implements InversionistaRepository
@@ -20,8 +21,6 @@ public class RestConsumer implements InversionistaRepository
 
     @Value("${adapter.restconsumer.url1}")
     private String url1;
-    @Value("${adapter.restconsumer.url2}")
-    private String url2;
     private final OkHttpClient client;
     private final ObjectMapper mapper;
 
@@ -50,21 +49,6 @@ public class RestConsumer implements InversionistaRepository
         return mapper.convertValue(response.getData(), Inversionista.class);
     }
 
-    //    public ObjectResponse testPost() throws IOException {
-//        String json = mapper.writeValueAsString(ObjectRequest.builder()
-//            .val1("exampleval1")
-//            .val2("exampleval1")
-//            .build()
-//        );
-//        RequestBody requestBody = RequestBody
-//            .create(MediaType.parse("application/json; charset=utf-8"), json);
-//        Request request = new Request.Builder()
-//            .url(url2)
-//            .post(requestBody)
-//            .addHeader("Content-Type","application/json")
-//            .build();
-//        var response = client.newCall(request).execute().body().string();
-//        return mapper.readValue(response, ObjectResponse.class);
-//    }
+
 
 }
