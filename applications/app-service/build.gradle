@@ -5,16 +5,16 @@ dependencies {
 	implementation project( ':feign-consumer')
 	implementation project( ':feign-helper')
 	implementation project( ':rest-consumer')
-	implementation 'com.fasterxml.jackson.core:jackson-databind'
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
 	implementation project( ':api-rest')
     implementation project(':model')
     implementation project(':usecase')
     implementation 'org.springframework.boot:spring-boot-starter'
     runtimeOnly('org.springframework.boot:spring-boot-devtools')
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
-    implementation "org.springframework.security:spring-security-oauth2-jose:6.0.3"
-    implementation 'org.springframework.security:spring-security-oauth2-resource-server:6.0.3'
-    implementation 'org.springframework.boot:spring-boot-starter-security:3.0.6'
+    implementation "org.springframework.security:spring-security-oauth2-jose:6.3.3"
+    implementation 'org.springframework.security:spring-security-oauth2-resource-server:6.3.3'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
 
 
 }

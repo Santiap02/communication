@@ -8,6 +8,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
@@ -16,11 +18,11 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable().cors().disable()
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/consumo/**")
-                        .authenticated()
-                )
-                .authorizeHttpRequests(authorize -> authorize.anyRequest().permitAll())
-                .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
+                        //.requestMatchers("/consumo/**")
+                        //.authenticated()
+                        .anyRequest()
+                        .permitAll());
+                //.oauth2ResourceServer(httpSecurityOAuth2ResourceServerConfigurer -> httpSecurityOAuth2ResourceServerConfigurer.jwt(withDefaults()));
         return http.build();
     }
 }

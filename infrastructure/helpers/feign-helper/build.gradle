@@ -1,6 +1,5 @@
 dependencies {
     implementation project(':model')
     implementation 'org.springframework:spring-context'
-    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:4.0.2'
-
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:4.1.3'
 }

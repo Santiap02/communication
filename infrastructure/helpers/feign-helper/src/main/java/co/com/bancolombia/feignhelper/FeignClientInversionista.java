@@ -1,7 +1,7 @@
 package co.com.bancolombia.feignhelper;
 
 import co.com.bancolombia.model.inversionista.Inversionista;
-import common.helper.ResponseData;
+import common.ResponseData;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

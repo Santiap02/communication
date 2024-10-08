@@ -25,6 +25,8 @@ subprojects {
 
     }
 
+    task allDependencies(type: DependencyReportTask) {}
+
     test.finalizedBy(project.tasks.jacocoTestReport)
 
     jacocoTestReport {

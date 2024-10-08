@@ -25,22 +25,46 @@ spring:
   cloud:
     openfeign:
       okhttp: enabled
+
 management:
-  endpoints:
+  health:
+    ratelimiters:
+      enabled: true
+    circuitbreakers:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
     web:
       exposure:
         include: "health,prometheus"
-  endpoint:
-    health:
-      probes:
-        enabled: true
+
 adapter:
   restconsumer:
     url1: "http://localhost:8080/api/v1/inversionista"
 logging:
   level:
     root: info
+    io:
+      github:
+        resilience4j:
+          circuitbreaker=DEBUG:
+          bulkhead=DEBUG:
 
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 20s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
 
-
-
+resilience4j.bulkhead:
+  instances:
+    backendA:
+      maxConcurrentCalls: 1
+      maxWaitDuration: 10ms

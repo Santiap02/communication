@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Primary
+
 @Component
 @RequiredArgsConstructor
 public class FeignConsumer implements InversionistaRepository {

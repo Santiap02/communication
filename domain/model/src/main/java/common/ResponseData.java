@@ -1,4 +1,4 @@
-package common.helper;
+package common;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
